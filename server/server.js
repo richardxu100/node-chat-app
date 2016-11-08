@@ -20,10 +20,11 @@ io.on('connection', (socket) => {
 
   socket.broadcast.emit('newMessage', generateMessage('Admin', 'A new user has joined!'));
 
-  socket.on('createMessage', (message) => {
+  socket.on('createMessage', (message, callback) => {
     console.log('createMessage', message);
     // socket.emit does to a single connection, io does for all connections
     io.emit('newMessage', generateMessage(message.from, message.text));
+    callback('This is from the server.');
   });
 
   socket.on('disconnect', () => {
