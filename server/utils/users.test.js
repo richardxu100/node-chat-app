@@ -22,7 +22,7 @@ describe('Users', () => {
     }]
 });
 
-  it('should add new user', () => {
+  it('should add a new user', () => {
     var users = new Users(); // can still define custom users class
     var user = {
       id: '123',
